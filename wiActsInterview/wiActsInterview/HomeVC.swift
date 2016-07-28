@@ -48,6 +48,7 @@ class HomeVC: UIViewController {
     
     func sendServerInfo(completion: (result : String)-> Void) {
         let package = Package()
+        APIService.sendServerJSONWithPackage(package)
         print(package.randomString!)
         completion(result: "success")
     }

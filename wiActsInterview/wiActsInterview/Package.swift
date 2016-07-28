@@ -12,7 +12,8 @@ import LocalAuthentication
 class Package: NSObject {
     var randomString : String?
     var timeStamp : String?
-    var currentState : NSData?
+    var date : String?
+    var currentTouchIDState : NSData?
     let stringLength = 15
     
     override init() {
@@ -49,8 +50,10 @@ class Package: NSObject {
             self.compareSavedStateToCurrentStateAndUpdateAccordingly(savedState)
         
         } else {
-            self.currentState = getCurrentStateContextState()
-            defaults.setValue(self.currentState!, forKey: "touch")
+            self.currentTouchIDState = getCurrentStateContextState()
+            self.date = "\(NSDate())"
+            defaults.setValue(self.currentTouchIDState!, forKey: "touch")
+            defaults.setValue(self.date!, forKey: "date")
         }
     }
     
@@ -66,14 +69,17 @@ class Package: NSObject {
     }
     
     
-    private func compareSavedStateToCurrentStateAndUpdateAccordingly(savedUserState: NSData) {
-        let currentUserState = self.getCurrentStateContextState()
+    private func compareSavedStateToCurrentStateAndUpdateAccordingly(savedUserTouchIDState: NSData) {
+        let currentUserTouchIDState = self.getCurrentStateContextState()
         
-        if currentUserState == savedUserState {
-            self.currentState = savedUserState
+        if currentUserTouchIDState == savedUserTouchIDState {
+            self.currentTouchIDState = savedUserTouchIDState
+            self.date = (NSUserDefaults.standardUserDefaults().valueForKey("date") as! String)
         } else {
-            self.currentState = currentUserState
-            NSUserDefaults.standardUserDefaults().setValue(self.currentState, forKey: "touch")
+            self.currentTouchIDState = currentUserTouchIDState
+            self.date = "\(NSDate())"
+            NSUserDefaults.standardUserDefaults().setValue(self.date, forKey: "date")
+            NSUserDefaults.standardUserDefaults().setValue(self.currentTouchIDState, forKey: "touch")
         }
         
     }

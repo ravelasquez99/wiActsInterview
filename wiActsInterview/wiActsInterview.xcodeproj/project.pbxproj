@@ -15,6 +15,7 @@
 		D86BFFAF1D4A8172008C64AC /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86BFFAE1D4A8172008C64AC /* HomeVC.swift */; };
 		D86BFFB11D4A8803008C64AC /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86BFFB01D4A8803008C64AC /* Package.swift */; };
 		D86BFFB51D4A99C4008C64AC /* KeychainWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = D86BFFB41D4A99C4008C64AC /* KeychainWrapper.m */; };
+		D86BFFB81D4AB9B7008C64AC /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86BFFB71D4AB9B7008C64AC /* APIService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		D86BFFB21D4A99C3008C64AC /* wiActsInterview-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "wiActsInterview-Bridging-Header.h"; sourceTree = "<group>"; };
 		D86BFFB31D4A99C4008C64AC /* KeychainWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeychainWrapper.h; sourceTree = "<group>"; };
 		D86BFFB41D4A99C4008C64AC /* KeychainWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeychainWrapper.m; sourceTree = "<group>"; };
+		D86BFFB71D4AB9B7008C64AC /* APIService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 			isa = PBXGroup;
 			children = (
 				D86BFFB21D4A99C3008C64AC /* wiActsInterview-Bridging-Header.h */,
+				D86BFFB61D4AB99C008C64AC /* Service */,
 				D86BFFAB1D4A80F2008C64AC /* Controller */,
 				D86BFFAA1D4A80EB008C64AC /* View */,
 				D86BFFA91D4A80E3008C64AC /* Model */,
@@ -99,6 +102,14 @@
 				D86BFFAE1D4A8172008C64AC /* HomeVC.swift */,
 			);
 			name = Controller;
+			sourceTree = "<group>";
+		};
+		D86BFFB61D4AB99C008C64AC /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				D86BFFB71D4AB9B7008C64AC /* APIService.swift */,
+			);
+			name = Service;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -176,6 +187,7 @@
 				D86BFF9D1D4A801F008C64AC /* wiActsInterview.xcdatamodeld in Sources */,
 				D86BFFAF1D4A8172008C64AC /* HomeVC.swift in Sources */,
 				D86BFF951D4A801F008C64AC /* AppDelegate.swift in Sources */,
+				D86BFFB81D4AB9B7008C64AC /* APIService.swift in Sources */,
 				D86BFFB51D4A99C4008C64AC /* KeychainWrapper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
