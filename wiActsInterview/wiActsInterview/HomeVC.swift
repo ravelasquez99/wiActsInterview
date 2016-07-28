@@ -15,8 +15,6 @@ class HomeVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupActivityIndicator(activityIndicator)
-        
-        
     }
     
     func setupActivityIndicator(activityIndicator: UIActivityIndicatorView) {
@@ -28,10 +26,15 @@ class HomeVC: UIViewController {
     @IBAction func sendButtonPressed(sender: UIButton) {
         activityIndicator.startAnimating()
         sendServerButton.userInteractionEnabled = false
-        
+        self.updateServer()
+    }
+    
+    func updateServer() {
         self.sendServerInfo { (result) in
+            
             self.activityIndicator.stopAnimating()
             self.sendServerButton.userInteractionEnabled = true
+            
             if result == "success" {
                 self.presentAlertWithString("Message Sent To Server")
             } else {
@@ -41,6 +44,8 @@ class HomeVC: UIViewController {
     }
     
     func sendServerInfo(completion: (result : String)-> Void) {
+        let package = Package()
+        print(package.randomString!)
         completion(result: "success")
     }
     
