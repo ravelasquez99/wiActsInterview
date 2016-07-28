@@ -7,15 +7,19 @@
 //
 
 import UIKit
+import LocalAuthentication
 
 class Package: NSObject {
     var randomString : String?
+    var timeStamp : String?
+    var currentState : NSData?
     let stringLength = 15
     
     override init() {
         super.init()
         self.generateRandomString()
         self.saveStringToKeyChain()
+        self.updateTouchIdData()
     }
     
     private func generateRandomString() {
@@ -37,5 +41,42 @@ class Package: NSObject {
         let keyChainWrapper = KeychainWrapper()
         keyChainWrapper.mySetObject(self.randomString, forKey: kSecValueData)
     }
+    
+    private func updateTouchIdData() {
+        let defaults = NSUserDefaults.standardUserDefaults()
+        
+        if let savedState = defaults.valueForKey("touch") as? NSData {
+            self.compareSavedStateToCurrentStateAndUpdateAccordingly(savedState)
+        
+        } else {
+            self.currentState = getCurrentStateContextState()
+            defaults.setValue(self.currentState!, forKey: "touch")
+        }
+    }
+    
+    private func getCurrentStateContextState() -> NSData {
+        let context = LAContext()
+        context.canEvaluatePolicy(.DeviceOwnerAuthenticationWithBiometrics, error: nil)
+        
+        if let domainState = context.evaluatedPolicyDomainState {
+            return domainState
+        } else {
+            return NSData()
+        }
+    }
+    
+    
+    private func compareSavedStateToCurrentStateAndUpdateAccordingly(savedUserState: NSData) {
+        let currentUserState = self.getCurrentStateContextState()
+        
+        if currentUserState == savedUserState {
+            self.currentState = savedUserState
+        } else {
+            self.currentState = currentUserState
+            NSUserDefaults.standardUserDefaults().setValue(self.currentState, forKey: "touch")
+        }
+        
+    }
+    
     
 }
