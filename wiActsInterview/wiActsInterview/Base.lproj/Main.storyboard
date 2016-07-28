@@ -31,18 +31,17 @@
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="He1-Be-WgE">
                                 <rect key="frame" x="290" y="194" width="20" height="20"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="20" id="R8N-vP-Twg"/>
-                                    <constraint firstAttribute="width" constant="20" id="V93-HF-wmS"/>
+                                    <constraint firstAttribute="height" constant="20" id="7ER-qk-HbO"/>
+                                    <constraint firstAttribute="width" constant="20" id="HOr-c6-JrS"/>
                                 </constraints>
                             </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="He1-Be-WgE" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="174" id="Caa-da-uLH"/>
                             <constraint firstItem="so6-EP-Seg" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Gnd-Sq-uKG"/>
-                            <constraint firstItem="so6-EP-Seg" firstAttribute="top" secondItem="He1-Be-WgE" secondAttribute="bottom" constant="71" id="Ps3-IP-wCc"/>
+                            <constraint firstItem="so6-EP-Seg" firstAttribute="top" secondItem="He1-Be-WgE" secondAttribute="bottom" constant="71" id="X7a-m1-R8T"/>
+                            <constraint firstItem="He1-Be-WgE" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="XAZ-JA-OTS"/>
                             <constraint firstItem="so6-EP-Seg" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="s1h-cM-egs"/>
-                            <constraint firstItem="He1-Be-WgE" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="zet-30-jy1"/>
                         </constraints>
                     </view>
                     <connections>

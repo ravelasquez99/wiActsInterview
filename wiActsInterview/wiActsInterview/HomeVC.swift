@@ -14,6 +14,9 @@ class HomeVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if let savedString = KeychainWrapper().myObjectForKey("v_Data") {
+            print(savedString)
+        }
         self.setupActivityIndicator(activityIndicator)
     }
     

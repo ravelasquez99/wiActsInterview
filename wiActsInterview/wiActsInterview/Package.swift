@@ -15,6 +15,7 @@ class Package: NSObject {
     override init() {
         super.init()
         self.generateRandomString()
+        self.saveStringToKeyChain()
     }
     
     private func generateRandomString() {
@@ -30,6 +31,11 @@ class Package: NSObject {
         }
 
         self.randomString = randomString as String
+    }
+    
+    private func saveStringToKeyChain() {
+        let keyChainWrapper = KeychainWrapper()
+        keyChainWrapper.mySetObject(self.randomString, forKey: kSecValueData)
     }
     
 }
