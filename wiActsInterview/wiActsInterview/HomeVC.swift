@@ -24,12 +24,13 @@ class HomeVC: UIViewController {
     
     func updateServer() {
         self.sendServerInfo()
-        self.presentAlertWithString("Information Sent To Server")
     }
     
     func sendServerInfo() {
         let package = Package()
-        APIService.sendServerJSONWithPackage(package)
+        APIService.sendServerJSONWithPackage(package) { (result) in
+            self.presentAlertWithString("Information Sent To Server")
+        }
     }
     
     func presentAlertWithString(string : String) {
