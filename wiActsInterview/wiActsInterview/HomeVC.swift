@@ -9,48 +9,27 @@
 import UIKit
 
 class HomeVC: UIViewController {
-    @IBOutlet var activityIndicator: UIActivityIndicatorView!
-    @IBOutlet var sendServerButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         if let savedString = KeychainWrapper().myObjectForKey("v_Data") {
+            //to show you it is saved properly
             print(savedString)
         }
-        self.setupActivityIndicator(activityIndicator)
     }
-    
-    func setupActivityIndicator(activityIndicator: UIActivityIndicatorView) {
-        activityIndicator.hidesWhenStopped = true
-        activityIndicator.hidden = true
-    }
-    
     
     @IBAction func sendButtonPressed(sender: UIButton) {
-        activityIndicator.startAnimating()
-        sendServerButton.userInteractionEnabled = false
         self.updateServer()
     }
     
     func updateServer() {
-        self.sendServerInfo { (result) in
-            
-            self.activityIndicator.stopAnimating()
-            self.sendServerButton.userInteractionEnabled = true
-            
-            if result == "success" {
-                self.presentAlertWithString("Message Sent To Server")
-            } else {
-                self.presentAlertWithString("Something Went Wrong")
-            }
-        }
+        self.sendServerInfo()
+        self.presentAlertWithString("Information Sent To Server")
     }
     
-    func sendServerInfo(completion: (result : String)-> Void) {
+    func sendServerInfo() {
         let package = Package()
         APIService.sendServerJSONWithPackage(package)
-        print(package.randomString!)
-        completion(result: "success")
     }
     
     func presentAlertWithString(string : String) {

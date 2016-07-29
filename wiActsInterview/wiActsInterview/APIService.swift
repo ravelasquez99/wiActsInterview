@@ -13,10 +13,11 @@ class APIService: NSObject {
     
     class func sendServerJSONWithPackage(package : Package) {
         let myUrl = NSURL(string: "http://requestb.in/xy76tbxy")
-        let postString = "randomString=\(package.randomString!)&timestamp=Timestamp"
-        
+        let postString = "json={\"randomString\":\"\(package.randomString)\",\"num\":\"\(package.date)\"}"
+
         let request = NSMutableURLRequest(URL:myUrl!)
         request.HTTPMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         
         request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding)
         
@@ -27,13 +28,6 @@ class APIService: NSObject {
                 print("error=\(error)")
                 return
             }
-            
-            // You can print out response object
-            print("response = \(response)")
-            
-            // Print out response body
-            let responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)
-            print("responseString = \(responseString)")
         }
         task.resume()
 

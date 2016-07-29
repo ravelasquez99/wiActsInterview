@@ -11,7 +11,6 @@ import LocalAuthentication
 
 class Package: NSObject {
     var randomString : String?
-    var timeStamp : String?
     var date : String?
     var currentTouchIDState : NSData?
     let stringLength = 15

@@ -28,26 +28,13 @@
                                     <action selector="sendButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0ao-cd-R9x"/>
                                 </connections>
                             </button>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="He1-Be-WgE">
-                                <rect key="frame" x="290" y="194" width="20" height="20"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="20" id="PUp-Ha-DEJ"/>
-                                    <constraint firstAttribute="width" constant="20" id="n1z-VL-m5l"/>
-                                </constraints>
-                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="so6-EP-Seg" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Gnd-Sq-uKG"/>
-                            <constraint firstItem="He1-Be-WgE" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Tom-Oy-Vle"/>
-                            <constraint firstItem="so6-EP-Seg" firstAttribute="top" secondItem="He1-Be-WgE" secondAttribute="bottom" constant="71" id="opb-ii-hDo"/>
                             <constraint firstItem="so6-EP-Seg" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="s1h-cM-egs"/>
                         </constraints>
                     </view>
-                    <connections>
-                        <outlet property="activityIndicator" destination="He1-Be-WgE" id="6EQ-Z3-rhe"/>
-                        <outlet property="sendServerButton" destination="so6-EP-Seg" id="QUL-t6-uzW"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
