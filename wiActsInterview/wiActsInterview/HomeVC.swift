@@ -29,7 +29,9 @@ class HomeVC: UIViewController {
     func sendServerInfo() {
         let package = Package()
         APIService.sendServerJSONWithPackage(package) { (result) in
-            self.presentAlertWithString("Information Sent To Server")
+            dispatch_async(dispatch_get_main_queue(), { 
+                self.presentAlertWithString("Information Sent To Server")
+            })
         }
     }
     

@@ -23,13 +23,13 @@ class APIService: NSObject {
         
         let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
             data, response, error in
-            completion(result: "done")
             if error != nil
             {
                 print("error=\(error)")
                 return
             }
-            
+            completion(result: "done")
+
             
         }
         task.resume()
