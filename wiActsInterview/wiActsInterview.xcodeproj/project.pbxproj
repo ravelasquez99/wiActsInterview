@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A0D924A9F9EB4F857CB0D161 /* Pods_wiActsInterview.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93F4B6199C27B5697CA82FA2 /* Pods_wiActsInterview.framework */; };
 		D86BFF951D4A801F008C64AC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86BFF941D4A801F008C64AC /* AppDelegate.swift */; };
 		D86BFF9A1D4A801F008C64AC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D86BFF981D4A801F008C64AC /* Main.storyboard */; };
 		D86BFF9D1D4A801F008C64AC /* wiActsInterview.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D86BFF9B1D4A801F008C64AC /* wiActsInterview.xcdatamodeld */; };
@@ -16,9 +17,13 @@
 		D86BFFB11D4A8803008C64AC /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86BFFB01D4A8803008C64AC /* Package.swift */; };
 		D86BFFB51D4A99C4008C64AC /* KeychainWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = D86BFFB41D4A99C4008C64AC /* KeychainWrapper.m */; };
 		D86BFFB81D4AB9B7008C64AC /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86BFFB71D4AB9B7008C64AC /* APIService.swift */; };
+		D87ACC5D1D4C4EAC005B66DC /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D87ACC5C1D4C4EAC005B66DC /* CryptoSwift.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		322ED084197F262A6F3CA1C9 /* Pods-wiActsInterview.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wiActsInterview.release.xcconfig"; path = "Pods/Target Support Files/Pods-wiActsInterview/Pods-wiActsInterview.release.xcconfig"; sourceTree = "<group>"; };
+		71F1A99A4F6C52CAA82D8B26 /* Pods-wiActsInterview.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wiActsInterview.debug.xcconfig"; path = "Pods/Target Support Files/Pods-wiActsInterview/Pods-wiActsInterview.debug.xcconfig"; sourceTree = "<group>"; };
+		93F4B6199C27B5697CA82FA2 /* Pods_wiActsInterview.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_wiActsInterview.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D86BFF911D4A801F008C64AC /* wiActsInterview.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = wiActsInterview.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D86BFF941D4A801F008C64AC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D86BFF991D4A801F008C64AC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -32,6 +37,7 @@
 		D86BFFB31D4A99C4008C64AC /* KeychainWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeychainWrapper.h; sourceTree = "<group>"; };
 		D86BFFB41D4A99C4008C64AC /* KeychainWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeychainWrapper.m; sourceTree = "<group>"; };
 		D86BFFB71D4AB9B7008C64AC /* APIService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
+		D87ACC5C1D4C4EAC005B66DC /* CryptoSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CryptoSwift.framework; path = "../../../../Library/Developer/Xcode/DerivedData/wiActsInterview-fzerjhinxmhmlkcndmimpwklhllv/Build/Products/Debug-iphonesimulator/CryptoSwift/CryptoSwift.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,17 +45,39 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D87ACC5D1D4C4EAC005B66DC /* CryptoSwift.framework in Frameworks */,
+				A0D924A9F9EB4F857CB0D161 /* Pods_wiActsInterview.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2F69B755FF5538CCBFDFFDD7 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				71F1A99A4F6C52CAA82D8B26 /* Pods-wiActsInterview.debug.xcconfig */,
+				322ED084197F262A6F3CA1C9 /* Pods-wiActsInterview.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		74E036FA4EA07EC309E0406D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D87ACC5C1D4C4EAC005B66DC /* CryptoSwift.framework */,
+				93F4B6199C27B5697CA82FA2 /* Pods_wiActsInterview.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		D86BFF881D4A801F008C64AC = {
 			isa = PBXGroup;
 			children = (
 				D86BFF931D4A801F008C64AC /* wiActsInterview */,
 				D86BFF921D4A801F008C64AC /* Products */,
+				2F69B755FF5538CCBFDFFDD7 /* Pods */,
+				74E036FA4EA07EC309E0406D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -119,9 +147,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D86BFFA61D4A801F008C64AC /* Build configuration list for PBXNativeTarget "wiActsInterview" */;
 			buildPhases = (
+				B3CFBC3652FB120C409A0706 /* [CP] Check Pods Manifest.lock */,
 				D86BFF8D1D4A801F008C64AC /* Sources */,
 				D86BFF8E1D4A801F008C64AC /* Frameworks */,
 				D86BFF8F1D4A801F008C64AC /* Resources */,
+				3C76A84C6C25166FF794C974 /* [CP] Embed Pods Frameworks */,
+				49D84FF36B1529681123F56E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -177,6 +208,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3C76A84C6C25166FF794C974 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-wiActsInterview/Pods-wiActsInterview-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		49D84FF36B1529681123F56E /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-wiActsInterview/Pods-wiActsInterview-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B3CFBC3652FB120C409A0706 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		D86BFF8D1D4A801F008C64AC /* Sources */ = {
@@ -299,6 +378,7 @@
 		};
 		D86BFFA71D4A801F008C64AC /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 71F1A99A4F6C52CAA82D8B26 /* Pods-wiActsInterview.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -313,6 +393,7 @@
 		};
 		D86BFFA81D4A801F008C64AC /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 322ED084197F262A6F3CA1C9 /* Pods-wiActsInterview.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -343,6 +424,7 @@
 				D86BFFA81D4A801F008C64AC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

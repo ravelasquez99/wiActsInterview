@@ -13,7 +13,7 @@ class APIService: NSObject {
     
     class func sendServerJSONWithPackage(package : Package, completion: (result: String)->Void) {
         let myUrl = NSURL(string: "http://requestb.in/xy76tbxy")
-        let postString = "json={\"randomString\":\"\(package.randomString)\",\"num\":\"\(package.date)\"}"
+        let postString = "json={\"AESKey\":\"\(package.encryptedKey)\",\"AESDate\":\"\(package.encryptedDate)\"}"
 
         let request = NSMutableURLRequest(URL:myUrl!)
         request.HTTPMethod = "POST"

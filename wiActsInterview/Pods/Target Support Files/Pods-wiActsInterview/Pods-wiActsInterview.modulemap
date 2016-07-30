@@ -1,0 +1,6 @@
+framework module Pods_wiActsInterview {
+  umbrella header "Pods-wiActsInterview-umbrella.h"
+
+  export *
+  module * { export * }
+}

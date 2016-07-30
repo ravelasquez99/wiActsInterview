@@ -8,21 +8,31 @@
 
 import UIKit
 import LocalAuthentication
+import CryptoSwift
 
 class Package: NSObject {
-    var randomString : String?
+    var key : String?
+    var iv : String?
     var date : String?
+    var encryptedKey : String?
+    var encryptedDate : NSString?
     var currentTouchIDState : NSData?
-    let stringLength = 15
+    let stringLength = 16
     
     override init() {
         super.init()
-        self.generateRandomString()
-        self.saveStringToKeyChain()
+        self.generateRandomStrings()
+        self.savekeyToKeyChain()
         self.updateTouchIdData()
+        self.generateEncryptedData()
     }
     
-    private func generateRandomString() {
+    private func generateRandomStrings() {
+        self.key = generateRandomString()
+        self.iv = generateRandomString()
+    }
+    
+    private func generateRandomString()->String {
         
         let allowedChars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
         let allowedCharsCount = UInt32(allowedChars.characters.count)
@@ -33,21 +43,22 @@ class Package: NSObject {
             let newCharacter = allowedChars[allowedChars.startIndex.advancedBy(randomNum)]
             randomString += String(newCharacter)
         }
-
-        self.randomString = randomString as String
+        
+        
+        return randomString as String
     }
     
-    private func saveStringToKeyChain() {
+    private func savekeyToKeyChain() {
         let keyChainWrapper = KeychainWrapper()
-        keyChainWrapper.mySetObject(self.randomString, forKey: kSecValueData)
+        keyChainWrapper.mySetObject(self.key, forKey: kSecValueData)
     }
+    
     
     private func updateTouchIdData() {
         let defaults = NSUserDefaults.standardUserDefaults()
         
         if let savedState = defaults.valueForKey("touch") as? NSData {
             self.compareSavedStateToCurrentStateAndUpdateAccordingly(savedState)
-        
         } else {
             self.currentTouchIDState = getCurrentStateContextState()
             self.date = "\(NSDate())"
@@ -55,18 +66,6 @@ class Package: NSObject {
             defaults.setValue(self.date!, forKey: "date")
         }
     }
-    
-    private func getCurrentStateContextState() -> NSData {
-        let context = LAContext()
-        context.canEvaluatePolicy(.DeviceOwnerAuthenticationWithBiometrics, error: nil)
-        
-        if let domainState = context.evaluatedPolicyDomainState {
-            return domainState
-        } else {
-            return NSData()
-        }
-    }
-    
     
     private func compareSavedStateToCurrentStateAndUpdateAccordingly(savedUserTouchIDState: NSData) {
         let currentUserTouchIDState = self.getCurrentStateContextState()
@@ -83,5 +82,37 @@ class Package: NSObject {
         
     }
     
+    private func getCurrentStateContextState() -> NSData {
+        let context = LAContext()
+        context.canEvaluatePolicy(.DeviceOwnerAuthenticationWithBiometrics, error: nil)
+        
+        if let domainState = context.evaluatedPolicyDomainState {
+            return domainState
+        } else {
+            return NSData()
+        }
+    }
+    
+    private func generateEncryptedData() {
+        do {
+            self.encryptedDate = try self.aesEncryptDataWithKey(self.key!, iv: self.iv!, dataToEncrypt: self.date!)
+            self.encryptedKey = try self.aesEncryptDataWithKey(self.key!, iv: self.iv!, dataToEncrypt: self.key!)
+            
+        } catch {
+            print("error")
+        }
+    }
+    
+    private func aesEncryptDataWithKey(key: String, iv: String, dataToEncrypt : String ) throws -> String{
+        do {
+            let aes = try AES(key: key, iv: iv)
+            let ciphertext = try aes.encrypt(dataToEncrypt.utf8.map({$0}))
+            return ciphertext.toHexString()
+        } catch {
+            print(error)
+        }
+        
+        return "success"
+    }
     
 }
